@@ -12,8 +12,7 @@ public class Main {
 
             File inpFile = new File(inpFileName);
             if (!inpFile.exists()) {
-                System.out.println("File does not exist");
-                return;
+                throw new IOException("File does not exist");
             }
 
             System.out.println("Enter the name of the output file: ");
@@ -24,8 +23,7 @@ public class Main {
                 if (outFile.createNewFile()) {
                     System.out.println("File was created");
                 } else {
-                    System.out.println("File was not created");
-                    return;
+                    throw new IOException("File was not created");
                 }
             }
 
@@ -42,8 +40,8 @@ public class Main {
                     Desktop desktop = Desktop.getDesktop();
                     if (desktop.isSupported(Desktop.Action.OPEN)) {
                         desktop.open(outFile);
-                    } else System.out.println("Sorry, that file is not supported");
-                } catch (IOException e) {
+                    } else throw new UnsupportedOperationException("Sorry, that file is not supported");
+                } catch (Exception e) {
                     System.out.println("Error: " + e.getMessage());
                 }
             } else if (input.equalsIgnoreCase("c")) {
@@ -51,7 +49,7 @@ public class Main {
                     while (fileScanner.hasNextLine()) {
                         System.out.println(fileScanner.nextLine());
                     }
-                } catch (IOException e) {
+                } catch (Exception e) {
                     System.out.println("Error: " + e.getMessage());
                 }
             } else System.out.println("Program completed.");
