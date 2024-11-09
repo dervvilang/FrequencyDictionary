@@ -13,7 +13,6 @@ public class Main {
 
             String inpFileName;
             if (fileChoice.equalsIgnoreCase("n")) {
-                // Создание нового файла
                 System.out.print("Enter the name of the new input file: ");
                 inpFileName = sc.nextLine();
 
@@ -23,7 +22,6 @@ public class Main {
                     if (inputFile.createNewFile()) {
                         System.out.println("A new input file has been created: " + inpFileName);
 
-                        // Запрашиваем ввод текста для записи в новый файл
                         System.out.println("Enter the text to write to the new input file. To complete, enter an empty string.");
                         try (FileWriter writer = new FileWriter(inputFile)) {
                             String line;
