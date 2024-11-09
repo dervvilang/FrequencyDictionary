@@ -39,7 +39,7 @@ public class Main {
                     System.out.println("A file with that name already exists. Use it for analysis.");
                 }
             }
-            else {
+            else if (fileChoice.equalsIgnoreCase("o")){
                 System.out.print("Enter the name of the existing input file: ");
                 inpFileName = sc.nextLine();
 
@@ -48,6 +48,8 @@ public class Main {
                     throw new IOException("File does not exist");
                 }
             }
+            else throw new IOException("You wrote something strange.. Try again.");
+            
             System.out.print("Enter the name of the output file: ");
             String outFileName = sc.nextLine();
 
