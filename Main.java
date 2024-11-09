@@ -40,7 +40,7 @@ public class Main {
                 }
             }
             else {
-                System.out.println("Enter the name of the existing input file: ");
+                System.out.print("Enter the name of the existing input file: ");
                 inpFileName = sc.nextLine();
 
                 File inpFile = new File(inpFileName);
@@ -48,7 +48,7 @@ public class Main {
                     throw new IOException("File does not exist");
                 }
             }
-            System.out.println("Enter the name of the output file: ");
+            System.out.print("Enter the name of the output file: ");
             String outFileName = sc.nextLine();
 
             File outFile = new File(outFileName);
@@ -65,7 +65,7 @@ public class Main {
 
             System.out.println("Processing is completed. The results are saved to a file: " + outFileName);
 
-            System.out.println("Do you want to open a file or display its contents in the console? (o - open, c - output to the console, n - nothing): ");
+            System.out.print("Do you want to open a file or display its contents in the console? (o - open, c - output to the console, n - nothing): ");
             String input = sc.nextLine();
 
             if (input.equalsIgnoreCase("o")) {
